@@ -1,0 +1,45 @@
+const arr = [];
+
+const getKeyName = data => {
+  Object.keys(data).forEach(v => {
+    if(typeof data[v] === 'object') {
+      getKeyName(data[v]);
+    } else if(typeof data[v] === 'number') {
+      arr.push(v);
+    }
+  });
+  return arr;
+};
+
+const test = () => {
+  const data = {
+    "debug": "on",
+    "window": {
+        "title": "Sample Konfabulator Widget",
+        "name": "main_window",
+        "width": 500,
+        "height": 500
+    },
+    "image": { 
+        "src": "Images/Sun.png",
+        "name": "sun1",
+        "hOffset": 250,
+        "vOffset": 250,
+        "alignment": "center"
+    },
+    "text": {
+        "data": "Click Here",
+        "size": 36,
+        "style": "bold",
+        "name": "text1",
+        "hOffset": 250,
+        "vOffset": 100,
+        "alignment": "center",
+        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
+    }
+  }
+  getKeyName(data);
+  console.log(arr);
+}
+
+test();
