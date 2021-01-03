@@ -4,29 +4,30 @@ const { log } = console;
 const history = [];
 
 const getArea = (type, ...value) => {
+  let result;
   switch(type) {
-    case 'circle': getCircleArea(...value); break;
-    case 'rect': getRectArea(...value); break;
-    case 'trapezoid': getTrapezoidArea(...value); break;
-    case 'cylinder': getCylinderArea(...value); break;
+    case 'circle': result = getCircleArea(...value); break;
+    case 'rect': result = getRectArea(...value); break;
+    case 'trapezoid': result = getTrapezoidArea(...value); break;
+    case 'cylinder': result = getCylinderArea(...value); break;
     default: break;
   }
   if(type) {
-    history.push(type);
+    history.push([type, result]);
   }
 }
 
 const getCircleArea = halfDiameter => {
-  return log(checkHandler(1, halfDiameter) || Math.pow(halfDiameter, 2) * Math.PI);
+  return checkHandler(1, halfDiameter) || Math.pow(halfDiameter, 2) * Math.PI;
 };
 const getRectArea = (shortBase, longBase) => {
-  return log(checkHandler(2, shortBase, longBase) || shortBase * longBase);
+  return checkHandler(2, shortBase, longBase) || shortBase * longBase;
 };
 const getTrapezoidArea = (shortBase, longBase, height) => {
-  return log(checkHandler(3, shortBase, longBase, height) || (shortBase + longBase) * height / 2);
+  return checkHandler(3, shortBase, longBase, height) || (shortBase + longBase) * height / 2;
 };
 const getCylinderArea = (halfDiameter, height) => {
-  return log(checkHandler(2, halfDiameter, height) || Math.pow(halfDiameter, 2) * Math.PI * height);
+  return checkHandler(2, halfDiameter, height) || Math.pow(halfDiameter, 2) * Math.PI * height;
 };
 
 const checkHandler = (length, ...nums) => {
@@ -59,7 +60,9 @@ const test = () => {
 }
 
 const printExecutionSequence = () => {
-  log(history.join(' '));
+  history.forEach(v => {
+    log(`호출: ${v[0]}, 결과: ${v[1]}`);
+  });
 }
 
 const start = () => {
