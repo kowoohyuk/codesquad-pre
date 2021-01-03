@@ -1,0 +1,14 @@
+출력 조건은 all 또는 개별
+todos 배열 내 객체가 status를 가지고 있으므로 참고하여 출력
+
+todos = [
+  todo, todo, ..., todo
+]
+
+show(타입) {
+  스위치문(all or type)으로 출력함수 호출
+  전체 출력 = `현재상태 : todo: 1개, ..., done: 4개 형태로 출력`
+  개별 출력 = `type리스트 : 총 n건 : [제목, 제목] 형태로 출력`
+}
+
+요구사항이 더 없으므로 add, modify, delete는 보류
