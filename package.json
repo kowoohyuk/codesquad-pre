@@ -1,0 +1,22 @@
+{
+  "name": "codesquad-pre",
+  "version": "1.0.0",
+  "description": "3. 다각형의 넓이구하기",
+  "main": "mission-2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kowoohyuk/codesquad-pre.git"
+  },
+  "author": "WOOHYUK KO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kowoohyuk/codesquad-pre/issues"
+  },
+  "homepage": "https://github.com/kowoohyuk/codesquad-pre#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
